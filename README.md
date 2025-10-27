@@ -110,15 +110,6 @@ The project follows a modular architecture with clear separation of concerns:
 - **Custom Hook**: Encapsulates state logic for reusability and testability
 - **TypeScript**: Shared type definitions ensure type safety across components
 
-## 🔧 Tech Stack
-
-- **React 19.1.1** with React Compiler
-- **TypeScript 5.9.3**
-- **Vite 7.1.7**
-- **Tailwind CSS v4.1.16**
-- **ESLint 9.36.0**
-- **Prettier** for code formatting
-
 ## 📝 Notes
 
 ### Architecture Highlights
