@@ -4,6 +4,8 @@ import type { DropdownOptionProps } from "../types";
 export const DropdownOption = ({ option, onSelect }: DropdownOptionProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  const hoverBgColor = isHovered ? "bg-kodama-white" : "bg-white";
+
   return (
     <button
       type="button"
@@ -11,7 +13,7 @@ export const DropdownOption = ({ option, onSelect }: DropdownOptionProps) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={`w-full text-sm text-left px-4 py-2 text-black transition-colors cursor-pointer ${
-        isHovered ? "bg-kodama-white" : "bg-white"
+        hoverBgColor
       }`}
     >
       {option.label}
