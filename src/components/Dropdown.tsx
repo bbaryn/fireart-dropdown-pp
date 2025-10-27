@@ -1,13 +1,20 @@
 import { useEffect, useRef, useState } from "react";
-import type { DropdownProps, DropdownsOption } from "../types";
+import type { DropdownsOption } from "../types";
 import { DropdownOption } from "./DropdownOptions";
 
-export default function Dropdown({
+export type DropdownProps = {
+  value: DropdownsOption | null;
+  placeholder: string;
+  options: DropdownsOption[];
+  onChange: (selectedOption: DropdownsOption) => void;
+};
+
+export const Dropdown = ({
   value,
   placeholder,
   options,
   onChange,
-}: DropdownProps) {
+}: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -37,6 +44,10 @@ export default function Dropdown({
 
   const displayText = value ? value.label : placeholder;
   const displayTextColor = value ? "text-gibraltar" : "text-vesper-violet";
+  const dropdownHeight = options.length > 7 ? "h-[275px]" : "h-auto";
+  const dropdownOverflow =
+    options.length > 7 ? "h-full custom-scrollbar" : "overflow-y-visible";
+  const additionalPadding = options.length > 7 ? "pr-2" : "";
 
   return (
     <div className="relative w-[500px]" ref={dropdownRef}>
@@ -63,7 +74,7 @@ export default function Dropdown({
 
       {isOpen && (
         <div
-          className={`z-10 absolute top-10 left-0 w-[500px] bg-white border border-silver-chalice rounded-lg overflow-hidden shadow-md/10 pr-2 ${options.length > 7 ? "h-[275px]" : "h-auto"}`}
+          className={`z-10 absolute top-10 left-0 w-[500px] bg-white border border-silver-chalice rounded-lg overflow-hidden shadow-md/10 ${additionalPadding} ${dropdownHeight}`}
         >
           <div
             className={`overflow-y-auto
@@ -72,13 +83,9 @@ export default function Dropdown({
               [&::-webkit-scrollbar-track]:bg-errigal-white
               [&::-webkit-scrollbar-thumb]:rounded-full
               [&::-webkit-scrollbar-thumb]:bg-gibraltar
-              ${
-                options.length > 7
-                  ? "h-full custom-scrollbar"
-                  : "overflow-y-visible"
-              }`}
+              ${dropdownOverflow}`}
           >
-            <div className="pt-2 pb-1 pr-2">
+            <div className={`pt-2 pb-1 ${additionalPadding}`}>
               {options.map((option) => (
                 <DropdownOption
                   key={option.id}
@@ -92,4 +99,4 @@ export default function Dropdown({
       )}
     </div>
   );
-}
+};

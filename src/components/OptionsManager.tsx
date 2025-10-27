@@ -7,12 +7,12 @@ type OptionsManagerProps = {
   onDeleteOption: (id: string | number) => void;
 };
 
-export function OptionsManager({
+export const OptionsManager = ({
   options,
   onOptionLabelChange,
   onAddOption,
   onDeleteOption,
-}: OptionsManagerProps) {
+}: OptionsManagerProps) => {
   return (
     <div>
       <div className="flex justify-between items-center mb-2">
@@ -49,4 +49,4 @@ export function OptionsManager({
       </div>
     </div>
   );
-}
+};

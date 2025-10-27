@@ -1,4 +1,4 @@
-import Dropdown from "./components/Dropdown";
+import { Dropdown } from "./components/Dropdown";
 import { OptionsManager } from "./components/OptionsManager";
 import { PlaceholderControl } from "./components/PlaceholderControl";
 import { SelectedValueDisplay } from "./components/SelectedValueDisplay";

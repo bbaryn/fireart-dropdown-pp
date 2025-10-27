@@ -1,5 +1,10 @@
 import { useState } from "react";
-import type { DropdownOptionProps } from "../types";
+import type { DropdownsOption } from "../types";
+
+type DropdownOptionProps = {
+  option: DropdownsOption;
+  onSelect: (option: DropdownsOption) => void;
+};
 
 export const DropdownOption = ({ option, onSelect }: DropdownOptionProps) => {
   const [isHovered, setIsHovered] = useState(false);

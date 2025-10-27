@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import type { DropdownsOption } from "../types";
 
-export function useDropdownState(initialOptions: DropdownsOption[] = []) {
+export const useDropdownState = (initialOptions: DropdownsOption[] = []) => {
   const [selectedOption, setSelectedOption] = useState<DropdownsOption | null>(
     null
   );
@@ -55,4 +55,4 @@ export function useDropdownState(initialOptions: DropdownsOption[] = []) {
     handleAddOption,
     handleDeleteOption,
   };
-}
+};

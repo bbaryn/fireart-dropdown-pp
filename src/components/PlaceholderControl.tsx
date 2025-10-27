@@ -3,10 +3,10 @@ type PlaceholderControlProps = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export function PlaceholderControl({
+export const PlaceholderControl = ({
   placeholder,
   onChange,
-}: PlaceholderControlProps) {
+}: PlaceholderControlProps) => {
   return (
     <div>
       <label className="block text-sm font-semibold text-gibraltar mb-2">
@@ -21,4 +21,4 @@ export function PlaceholderControl({
       />
     </div>
   );
-}
+};

@@ -4,9 +4,9 @@ type SelectedValueDisplayProps = {
   selectedOption: DropdownsOption | null;
 };
 
-export function SelectedValueDisplay({
+export const SelectedValueDisplay = ({
   selectedOption,
-}: SelectedValueDisplayProps) {
+}: SelectedValueDisplayProps) => {
   if (!selectedOption) return null;
 
   return (
@@ -17,4 +17,4 @@ export function SelectedValueDisplay({
       </p>
     </div>
   );
-}
+};
