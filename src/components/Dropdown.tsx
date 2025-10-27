@@ -28,7 +28,7 @@ export default function Dropdown({
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isOpen]);
+  }, [isOpen, dropdownRef]);
 
   const handleSelect = (option: DropdownsOption) => {
     onChange(option);
@@ -37,20 +37,18 @@ export default function Dropdown({
 
   const displayText = value ? value.label : placeholder;
   const displayTextColor = value ? "text-gibraltar" : "text-vesper-violet";
+  const rotationAngle = isOpen ? 0 : 180;
 
   return (
     <div className="relative w-[500px]" ref={dropdownRef}>
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="min-w-[500px] px-4 py-3 bg-white border border-[#E0E0E0] rounded-lg flex items-center justify-between hover:border-[#D0D0D0] transition-colors cursor-pointer"
+        className="min-w-[500px] max-h-[32px] px-4 py-2.5 bg-white border border-silver-chalice rounded-lg flex items-center justify-between cursor-pointer"
       >
         <span className={`${displayTextColor} text-sm`}>{displayText}</span>
         <svg
-          className="w-3.5 h-3.5 text-gibraltar transition-transform -mr-2"
-          style={{
-            transform: isOpen ? "rotate(0deg)" : "rotate(180deg)",
-          }}
+          className={`w-3.5 h-3.5 text-gibraltar -mr-2 rotate-[${rotationAngle}deg] transition-transform ease-in-out`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -65,7 +63,7 @@ export default function Dropdown({
       </button>
 
       {isOpen && (
-        <div className="relative top-2.5 left-0 w-[500px] h-[275px] bg-white border border-[#E0E0E0] rounded-lg overflow-hidden shadow-md/10 pr-2">
+        <div className="relative top-2.5 left-0 w-[500px] h-[275px] bg-white border border-silver-chalice rounded-lg overflow-hidden shadow-md/10 pr-2">
           <div
             className={`h-full overflow-y-auto
               [&::-webkit-scrollbar]:w-0.25
@@ -74,7 +72,7 @@ export default function Dropdown({
               [&::-webkit-scrollbar-thumb]:rounded-full
               [&::-webkit-scrollbar-thumb]:bg-gibraltar`}
           >
-            <div className="pt-1.5 pb-1 pr-2">
+            <div className="pt-2 pb-1 pr-2">
               {options.map((option) => (
                 <DropdownOption
                   key={option.id}

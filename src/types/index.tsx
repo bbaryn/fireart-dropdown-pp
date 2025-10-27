@@ -4,7 +4,7 @@ export type DropdownsOption = {
 };
 
 export type DropdownProps = {
-  value?: DropdownsOption | null;
+  value: DropdownsOption | null;
   placeholder: string;
   options: DropdownsOption[];
   onChange: (selectedOption: DropdownsOption) => void;

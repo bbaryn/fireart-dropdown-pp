@@ -4,7 +4,7 @@ import type { DropdownsOption } from "./types";
 
 function App() {
   const [selectedOption, setSelectedOption] = useState<DropdownsOption | null>(
-    null
+    null,
   );
 
   const options: DropdownsOption[] = [
