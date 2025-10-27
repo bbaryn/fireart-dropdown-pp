@@ -10,7 +10,6 @@ export function useDropdownState(initialOptions: DropdownsOption[] = []) {
 
   const handleChange = useCallback((option: DropdownsOption) => {
     setSelectedOption(option);
-    console.log("Selected option:", option);
   }, []);
 
   const handlePlaceholderChange = useCallback(
