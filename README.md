@@ -2,6 +2,8 @@
 
 A custom dropdown component built with React and Tailwind CSS v4, designed to match a pixel-perfect specification with precision.
 
+***I asked a question about the requirements, but I didn't get an answer, and since the deadline was approaching, I am sharing the task in order to meet the promised deadline.***
+
 ## 🚀 Quick Start
 
 ### Installation
