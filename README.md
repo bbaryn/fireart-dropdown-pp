@@ -72,49 +72,7 @@ This component was designed for a **1000px screen width** and **Chrome Web Brows
 - The current component displays optimally at 1000px viewport width
 - For responsive versions, additional designs for tablets and mobile would be required
 
-## 🎨 Custom Colors
-
-The project uses custom Tailwind colors defined in `src/styles/global.css`:
-
-- **White**: `#ffffff` - Pure white background
-- **Black**: `#000000` - Default text color
-- **Kodama White**: `#e6f6fd` - Dropdown hover state
-- **Gibraltar**: `#76849a` - Primary text color (gibraltar)
-- **Doctor White**: `#f8f9fa` - Page background
-- **Vesper Violet**: `#99a4b3` - Placeholder and scrollbar color
-- **Errigal White**: `#f1f2f5` - Scrollbar track background
-- **Silver Chalice**: `#ebebec` - Border color for inputs and containers
-
 ## 💡 Usage
-
-### Basic Implementation
-
-```tsx
-import Dropdown from "./components/Dropdown";
-import { useDropdownState } from "./hooks/useDropdownState";
-
-function App() {
-  const {
-    selectedOption,
-    placeholder,
-    options,
-    handleChange,
-    handlePlaceholderChange,
-    handleOptionLabelChange,
-    handleAddOption,
-    handleDeleteOption,
-  } = useDropdownState(initialOptions);
-
-  return (
-    <Dropdown
-      value={selectedOption}
-      placeholder={placeholder}
-      options={options}
-      onChange={handleChange}
-    />
-  );
-}
-```
 
 ### Dynamic Content Editing
 
@@ -151,29 +109,6 @@ The project follows a modular architecture with clear separation of concerns:
 - **Control Components**: Reusable UI components for managing dropdown properties
 - **Custom Hook**: Encapsulates state logic for reusability and testability
 - **TypeScript**: Shared type definitions ensure type safety across components
-
-## 📐 Component Dimensions
-
-### Dropdown Selector
-- Width: `500px`
-- Height: `30px` (max-height: `32px`)
-- Padding: `16px` horizontal (`px-4`), `8px` vertical (`py-2.5`)
-- Border: `1px` solid silver-chalice
-- Border radius: `0.5rem` (rounded-lg)
-
-### Dropdown Menu
-- Width: `500px`
-- Height: Auto when ≤ 7 options, fixed `275px` when > 7 options (with scrollbar)
-- Gap between selector and menu: `10px` (top-10 spacing)
-- Border: `1px` solid silver-chalice
-- Border radius: `0.5rem` (rounded-lg)
-- Scrollbar width: `16px` when visible
-- Scroll padding: `8px` horizontal, `4px` vertical
-
-### Option Items
-- Padding: `8px` horizontal (`px-4`), `8px` vertical (`py-2`)
-- Hover background: `#e6f6fd` (kodama-white)
-- Text color: `#76849a` (gibraltar)
 
 ## 🔧 Tech Stack
 
