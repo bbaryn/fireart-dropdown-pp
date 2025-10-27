@@ -37,7 +37,6 @@ export default function Dropdown({
 
   const displayText = value ? value.label : placeholder;
   const displayTextColor = value ? "text-gibraltar" : "text-vesper-violet";
-  const rotationAngle = isOpen ? 0 : 180;
 
   return (
     <div className="relative w-[500px]" ref={dropdownRef}>
@@ -48,7 +47,7 @@ export default function Dropdown({
       >
         <span className={`${displayTextColor} text-sm`}>{displayText}</span>
         <svg
-          className={`w-3.5 h-3.5 text-gibraltar -mr-2 rotate-[${rotationAngle}deg] transition-transform ease-in-out`}
+          className={`w-3.5 h-3.5 text-gibraltar -mr-2 transition-transform ease-in-out ${isOpen ? "rotate-0" : "rotate-180"}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -63,14 +62,21 @@ export default function Dropdown({
       </button>
 
       {isOpen && (
-        <div className="relative top-2.5 left-0 w-[500px] h-[275px] bg-white border border-silver-chalice rounded-lg overflow-hidden shadow-md/10 pr-2">
+        <div
+          className={`z-10 absolute top-10 left-0 w-[500px] bg-white border border-silver-chalice rounded-lg overflow-hidden shadow-md/10 pr-2 ${options.length > 7 ? "h-[275px]" : "h-auto"}`}
+        >
           <div
-            className={`h-full overflow-y-auto
+            className={`overflow-y-auto
               [&::-webkit-scrollbar]:w-0.25
               [&::-webkit-scrollbar-track]:my-2
               [&::-webkit-scrollbar-track]:bg-errigal-white
               [&::-webkit-scrollbar-thumb]:rounded-full
-              [&::-webkit-scrollbar-thumb]:bg-gibraltar`}
+              [&::-webkit-scrollbar-thumb]:bg-gibraltar
+              ${
+                options.length > 7
+                  ? "h-full custom-scrollbar"
+                  : "overflow-y-visible"
+              }`}
           >
             <div className="pt-2 pb-1 pr-2">
               {options.map((option) => (
